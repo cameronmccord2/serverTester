@@ -1,0 +1,69 @@
+<div>   
+    <div class="lTop">
+        <div class="lTitleText">Truck Listing</div>
+    </div>
+    <div class="lBottom">
+        <div class="lLeft">
+            <div class="lCategoryGroup">
+                <div class="lSearchBar">
+                    <div class="lCategory">Stock #</div>
+                    <form name="stockNumber">
+                        <input ng-model="search.stockNumber" name="stockNumberSearch" class="lSearchBarText" placeholder="Stock #" type="text" ng-maxlength="5" maxlength="5" ng-pattern="/(?:\d{1,5})/" ng-change="formChange()">
+                        <!-- <div class="lFieldError" ng-show="{{subCategory.formName}}.{{subCategory.fieldName}}.$error.pattern">Invalid {{subCategory.fieldName}}</div> -->
+                    </form>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Makes</div>
+                <div class="lMakes">
+                        <form name="makes">
+                        <div ng-repeat="make in truckData.makes">
+                            <input type="checkbox" ng-model="temp" name="{{make.name}}" class="lCheckBox" ng-true-value="t" ng-false-value="f" ng-change="formMakesChange(make.name)">{{make.name}} ({{make.number}})
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Miles</div>
+                <div class="sliderGroup">
+                    <div range-slider="" type="miles"></div>
+                    <div class="lLeftNumber">{{current[arrayValue.miles] | number}}</div>
+                    <div class="lRightNumber">{{current[arrayValue.miles + 1] | number}}</div>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Price</div>
+                <div class="sliderGroup">
+                    <div range-slider="" type="price"></div>
+                    <div class="lLeftNumber">${{current[arrayValue.price] | number}}</div>
+                    <div class="lRightNumber">${{current[arrayValue.price + 1] | number}}</div>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Year</div>
+                <div class="sliderGroup">
+                    <div range-slider="" type="year"></div>
+                    <div class="lLeftNumber">{{current[arrayValue.year]}}</div>
+                    <div class="lRightNumber">{{current[arrayValue.year + 1]}}</div>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Order By</div>
+                <select class="lOrderBySelect" ng-model="truckList.howToOrderTrucks" ng-options="orderByElement as orderByElement.title for orderByElement in truckList.orderByList"></select>
+            </div>
+        </div>
+        <div class="lRight">
+            <div ng-repeat="truck in truckData.trucks | filter:truckFilter | filter:search | orderBy:truckList.howToOrderTrucks.attribute:truckList.howToOrderTrucks.reverse">
+                <div class="lTruckTile" ng-click="showTruckDetails(truck)" title="View this {{truck.theYear}} {{truck.make}} {{truck.model}}">
+                    <div><img class="lTileImage" ng-src="assets/{{truck.tileImage}}" alt="Truck Image Not Available"></div>
+                    <div class="lTileTitle">{{truck.theYear}} {{truck.make}} {{truck.model}}</div>
+                    <div class="lTileAttribute">Stock #: {{truck.stockNumber}}</div>
+                    <div class="lTileAttribute">Miles: {{truck.miles | number}}</div>
+                    <div class="lTileAttribute">Engine: {{truck.engine}}</div>
+                    <div class="lTilePrice">Price: ${{truck.price | number}}</div>
+                    <div class="lViewTruckButton"><div class="lViewTruckButtonText">View Truck</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

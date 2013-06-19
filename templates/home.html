@@ -1,0 +1,72 @@
+<div ng-include="'templates/navBar.html'"></div>
+<div>
+    <div class="lBottom">
+        <div class="aLeft">
+            <button class="lNewTruckButton" ng-click="newTruck()">New Truck</button>
+            <div class="lCategoryGroup">
+                <div class="lSearchBar">
+                    <div class="lCategory">Stock #</div>
+                    <form name="stockNumber">
+                        <input ng-model="search.stockNumber" name="stockNumberSearch" class="lSearchBarText" placeholder="Stock #" type="text" ng-maxlength="5" maxlength="5" ng-change="formChange()">
+                    </form>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Makes</div>
+                <div class="lMakes">
+                        <form name="makes">
+                        <div ng-repeat="make in truckData.makes">
+                            <input type="checkbox" ng-model="temp" name="{{make.name}}" class="lCheckBox" ng-true-value="t" ng-false-value="f" ng-change="formMakesChange(make.name)">{{make.name}} ({{make.number}})
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Miles</div>
+                <div class="sliderGroup">
+                    <div range-slider="" type="miles"></div>
+                    <div class="lLeftNumber">{{current[arrayValue.miles] | number}}</div>
+                    <div class="lRightNumber">{{current[arrayValue.miles + 1] | number}}</div>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Price</div>
+                <div class="sliderGroup">
+                    <div range-slider="" type="price"></div>
+                    <div class="lLeftNumber">${{current[arrayValue.price] | number}}</div>
+                    <div class="lRightNumber">${{current[arrayValue.price + 1] | number}}</div>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Year</div>
+                <div class="sliderGroup">
+                    <div range-slider="" type="year"></div>
+                    <div class="lLeftNumber">{{current[arrayValue.year]}}</div>
+                    <div class="lRightNumber">{{current[arrayValue.year + 1]}}</div>
+                </div>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Order By</div>
+                <select class="lOrderBySelect" ng-model="truckList.howToOrderTrucks" ng-options="orderByElement as orderByElement.title for orderByElement in truckList.orderByList"></select>
+            </div>
+            <div class="lCategoryGroup">
+                <div class="lCategory">Only Show</div>
+                <div class="lMakes">
+                    <form name="onlyShow">
+                        <input type="checkbox" ng-model="onlyShowNeedsImage" name="Needs Image" class="lCheckBox" ng-true-value="t" ng-false-value="f">Only Show Needs Image</input>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="aRight">
+            <div ng-repeat="truck in truckData.trucks | filter:truckFilter | filter:search | orderBy:['status', truckList.howToOrderTrucks.attribute]:truckList.howToOrderTrucks.reverse">
+                <div class="aTruckRow" title="View this {{truck.year}} {{truck.make}} {{truck.model}}">
+                    <div ng-click="editTruck(truck)"><img class="aTruckImage" ng-src="assets/{{truck.tileImage}}" alt="Truck Image Not Available"></div>
+                    <div class="aTruckRowText" ng-click="editTruck(truck)">{{truck.year}} {{truck.make}} {{truck.model}},Stock #: {{truck.stockNumber}},Miles: {{truck.miles | number}},Engine: {{truck.engine}},Price: ${{truck.price | number}}</div>
+                    <div class="aTruckButton1" ng-style="needsImageStyle(truck.needsImage)" ng-click="needsImage(truck)">Needs Image</div>
+                    <select class="aTruckButton2" ng-model="truck.status" ng-change="editTruckByField('status', truck.status, truck._id)" ng-options="status.statusNum as status.label for status in truckStatusArray"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

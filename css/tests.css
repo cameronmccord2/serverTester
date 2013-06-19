@@ -1,0 +1,51 @@
+.cSortRow, .cRow{
+	float:left;
+	height:30px;
+	width:100%;
+}
+.cSortText, .cName, .cEmail, .cWhenBestContact, .cPhoneNumber, .cRecieved, .cStatus, .cComment{
+	float:left;
+	width:92px;
+	margin-left: 7px;
+}
+.cRecieved{
+	height:100%;
+	cursor: pointer;
+}
+.cSortText{
+	width:100px;
+}
+.cComment{
+	width:368px;
+}
+.cStatus{
+	width:100px;
+}
+.cSortText{
+	font-size: 120%;
+	cursor: pointer;
+}
+.cBox{
+	float:left;
+	margin-top: 30px;
+	background-color:rgb(224, 224, 224);
+	width: 1000px;
+}
+.cRow:hover{
+	background-color: rgb(185,189,174);
+}
+.newContactButton{
+	float:right;
+}
+.cErrorText{
+	color:red;
+}
+.cContactList{
+	margin-top: 30px
+}
+.cSortRow{
+	position:fixed;
+	z-index: 10;
+	width: 1000px;
+	background-color:rgb(224, 224, 224);
+}
