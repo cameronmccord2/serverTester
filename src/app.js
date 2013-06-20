@@ -4,7 +4,7 @@ serverTesterApp.config(['$routeProvider',function ($routeProvider, $locationProv
     //$locationProvider.html5Mode(true);
     $routeProvider.
         when('/serverTester/home', { templateUrl: 'templates/home.html', controller: mainCtrl}).
-        when('/serverTester/:appToTest', { templateUrl: 'templates/tests.html', controller: itemMapTestCtrl}).
+        when('/serverTester/itemMap', { templateUrl: 'templates/tests.html', controller: itemMapTestCtrl}).
         otherwise({ redirectTo: '/serverTester/home' });
 }]);
 

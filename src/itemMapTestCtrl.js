@@ -41,7 +41,7 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
                         $scope.results.push({test:test, status:'Failure', result:result, time:duration});   
                     }
                 }else{
-                    $scope.results.push({test:test, status:'Hard Failure', result:result, time:duration});
+                    $scope.results.push({test:test, status:'HardFailure', result:result, time:duration});
                 }
             });
         }else if(test.method == 'PUT'){
@@ -73,7 +73,7 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
                         $scope.results.push({test:test, status:'Failure', result:result, time:duration});   
                     }
                 }else{
-                    $scope.results.push({test:test, status:'Hard Failure', result:result, time:duration});
+                    $scope.results.push({test:test, status:'HardFailure', result:result, time:duration});
                 }
             });
         }else if(test.method == 'POST'){
@@ -105,7 +105,7 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
                         $scope.results.push({test:test, status:'Failure', result:result, time:duration});   
                     }
                 }else{
-                    $scope.results.push({test:test, status:'Hard Failure', result:result, time:duration});
+                    $scope.results.push({test:test, status:'HardFailure', result:result, time:duration});
                 }
             });
         }else if(test.method == 'DELETE'){
@@ -137,7 +137,7 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
                         $scope.results.push({test:test, status:'Failure', result:result, time:duration});   
                     }
                 }else{
-                    $scope.results.push({test:test, status:'Hard Failure', result:result, time:duration});
+                    $scope.results.push({test:test, status:'HardFailure', result:result, time:duration});
                 }
             });
         }else if(test.method == 'JSONP'){
@@ -169,7 +169,7 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
                         $scope.results.push({test:test, status:'Failure', result:result, time:duration});   
                     }
                 }else{
-                    $scope.results.push({test:test, status:'Hard Failure', result:result, time:duration});
+                    $scope.results.push({test:test, status:'HardFailure', result:result, time:duration});
                 }
             });
         }else if(test.method == 'HEAD'){
@@ -201,7 +201,7 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
                         $scope.results.push({test:test, status:'Failure', result:result, time:duration});   
                     }
                 }else{
-                    $scope.results.push({test:test, status:'Hard Failure', result:result, time:duration});
+                    $scope.results.push({test:test, status:'HardFailure', result:result, time:duration});
                 }
             });
         }else{
