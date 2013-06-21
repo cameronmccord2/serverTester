@@ -1,8 +1,8 @@
 <div class="hCenterView">
     <div ng-repeat="app in applications">   
         <div class="hTestRow" ng-click="goToTest(app.route)">
-            <div class="hTestName" ng-bind-html-unsafe="app.name"></div>
-            <div class="hTestRoute" ng-bind-html-unsafe="app.route"></div>
+            <div class="hEntry">Name: </div><div class="hTestName" ng-bind-html-unsafe="app.name"></div>
+            <div class="hEntry">Route: </div><div class="hTestRoute" ng-bind-html-unsafe="app.route"></div>
         </div>
     </div>
 </div>

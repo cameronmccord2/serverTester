@@ -1,51 +1,61 @@
-.cSortRow, .cRow{
+.tCenterView{
+	width: 100%;
+}
+.tTestRow{
 	float:left;
-	height:30px;
 	width:100%;
+	height:25px;
 }
-.cSortText, .cName, .cEmail, .cWhenBestContact, .cPhoneNumber, .cRecieved, .cStatus, .cComment{
-	float:left;
-	width:92px;
-	margin-left: 7px;
+.tTestRow :hover{
+	background-color: darkgrey;
 }
-.cRecieved{
-	height:100%;
-	cursor: pointer;
+.tEvenRow{
+	background-color:grey;
 }
-.cSortText{
-	width:100px;
+.tOddRow{
+	background-color:white;
 }
-.cComment{
-	width:368px;
+.tSequence{
+
 }
-.cStatus{
-	width:100px;
+.tStatusIcon{
+
 }
-.cSortText{
-	font-size: 120%;
-	cursor: pointer;
+.tMethod{
+
 }
-.cBox{
-	float:left;
-	margin-top: 30px;
-	background-color:rgb(224, 224, 224);
-	width: 1000px;
+.tPath{
+
 }
-.cRow:hover{
-	background-color: rgb(185,189,174);
+.tTime{
+
 }
-.newContactButton{
-	float:right;
+.tExpandable{
+
 }
-.cErrorText{
-	color:red;
+.tInputBody{
+
 }
-.cContactList{
-	margin-top: 30px
+.tInputConfig{
+
 }
-.cSortRow{
-	position:fixed;
-	z-index: 10;
-	width: 1000px;
-	background-color:rgb(224, 224, 224);
+.tOutput{
+
+}
+.tCorrect{
+	background-color: green;
+}
+.tExpandableRow{
+	width:100%;
+	height:75px;
+	background-color: darkgrey;
+}
+.tResultStatus{
+
+}
+.tResultConfig{
+
+}
+.tResultHeaders{
+
 }
