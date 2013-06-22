@@ -2,14 +2,13 @@
 	width: 100%;
 	background-color: black;
 }
-textarea{
-	height:20px;
-	width:140px;
-	margin: 2px 4px 2px 4px;
+input{
+	width:175px;
+	margin: 5px 4px 0px 4px;
 }
 .tTestRow{
 	float:left;
-	width:1190px;
+	width:1290px;
 	height:30px;
 	margin-left: 10px;
 }
@@ -61,6 +60,7 @@ textarea{
 }
 .tResultStatus{
 	float:left;
+	width:80px;
 }
 .tResultConfig{
 	float:left;
@@ -99,7 +99,7 @@ textarea{
 	float:left;
 	height:30px;
 	background-color: yellow;
-	width: 1200px;
+	width: 1300px;
 }
 .tSequenceCompleteButton{
 	float:right;
@@ -116,4 +116,11 @@ textarea{
 }
 .tType{
 	float:left;
+}
+.tUpButton, .tDownButton{
+	float:right;
+}
+.tRemoveButton{
+	float:right;
+	width: 75px;
 }

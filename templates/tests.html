@@ -13,6 +13,8 @@
             <button class="tSequenceCompleteButton" ng-click="toggle(sequence, 'completed')" ng-show="sequence.completed">Mark not complete</button>
             <button class="tSequenceButton" ng-click="toggle(sequence, 'showExpandedSequence')" ng-hide="sequence.showExpandedSequence">Expand</button>
             <button class="tSequenceButton" ng-click="toggle(sequence, 'showExpandedSequence')" ng-show="sequence.showExpandedSequence">UnExpand</button>
+            <button class="tSequenceCompleteButton" ng-click="toggle(sequence, 'hasRun')" ng-hide="sequence.hasRun">Run Sequence</button>
+            <button class="tSequenceCompleteButton" ng-click="" ng-show="sequence.hasRun">ReRun Sequence</button>
         </div>
         <div ng-show="sequence.showExpandedSequence" ng-repeat="test in sequence.tests | orderBy:'order':false">   
             <div class="tTestRow" ng-class="rowColor($index)">
@@ -37,17 +39,17 @@
                     <input type="text" class="tInputConfig" ng-model="test.inputConfigJsonString" ng-change="test.inputConfig = angular.toJson(test.inputConfigJsonString); console.log(test.inputConfig);" placeholder="Input Config">
                 </div>
                 <div class="tOutputColumn">
-                    <div class="tLabel">&nbspIn&nbsp{{$index}}</div>
+                    <div class="tLabel">&nbspIn&nbsp</div>
                     <div class="tTime" ng-model="test.time"></div>
                     <input type="text" class="tOutput" ng-model="test.correctOutput" placeholder="Correct Output">
                     <input type="text" class="tResultStatus" ng-model="test.correctResultStatus" placeholder="Correct Status">
                 </div>
-                <button class="tExpandButton" ng-click="move($index, 'test', 'up')" ng-show="test.showExpandedTest">Move Up</button>
-                <button class="tExpandButton" ng-click="move($index, 'test', 'down')" ng-show="test.showExpandedTest">Move Down</button>
-                <button class="tExpandButton" ng-click="toggle(test, 'remove')" ng-show="test.showExpandedTest">Remove</button>
-                <button class="tExpandButton" ng-click="toggle(test, 'remove')" ng-show="test.showExpandedTest">UnRemove</button>
                 <button class="tExpandButton" ng-click="toggle(test, 'showExpandedTest')" ng-hide="test.showExpandedTest">Expand</button>
                 <button class="tExpandButton" ng-click="toggle(test, 'showExpandedTest')" ng-show="test.showExpandedTest">UnExpand</button>
+                <button class="tRemoveButton" ng-click="toggle(test, 'remove')" ng-hide="test.remove">Remove</button>
+                <button class="tRemoveButton" ng-click="toggle(test, 'remove')" ng-show="test.remove">UnRemove</button>
+                <button class="tDownButton" ng-click="move($index, 'test', 'down')">Down</button>
+                <button class="tUpButton" ng-click="move($index, 'test', 'up')">Up</button>
             </div>
             <div class="tExpandable" ng-show="test.showExpandedTest">
                 <div class="tExpandableRow">Output: <div class="tOutput" ng-bind-html-unsafe="test.result.data"></div></div>

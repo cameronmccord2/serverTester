@@ -85,6 +85,7 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
     console.log($scope.sequences);
     for (var j = $scope.sequences.length - 1; j >= 0; j--) {
         $scope.sequences[j].showExpandedSequence = true;
+        $scope.sequences[j].hasRun = false;
         console.log("sequence")
         for (var i = 0; i < $scope.sequences[j].tests.length; i++) {
             console.log('test')
@@ -103,7 +104,7 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
     }
 
     $scope.move = function(index, which, how){
-        
+
     }
 
     $scope.toggle = function(object, m1, m2, m3){
