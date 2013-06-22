@@ -1,3 +1,13 @@
+*{
+	box-sizing:border-box;
+}
 #iContainer{
 	width:1200px;
+	margin:auto auto;
+}
+.evenRow{
+	background-color:grey;
+}
+.oddRow{
+	background-color:brown;
 }

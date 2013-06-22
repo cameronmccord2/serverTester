@@ -1,61 +1,90 @@
 .tCenterView{
 	width: 100%;
 }
+textarea{
+	height:20px;
+	width:140px;
+	margin: 2px 4px 2px 4px;
+}
 .tTestRow{
 	float:left;
 	width:100%;
-	height:25px;
+	height:30px;
 }
 .tTestRow :hover{
 	background-color: darkgrey;
 }
-.tEvenRow{
-	background-color:grey;
-}
-.tOddRow{
-	background-color:white;
+.tExpandButton{
+	float:right;
 }
 .tSequence{
+	float:left;
+}
+.tRowElement{
 
 }
 .tStatusIcon{
-
+	float:left;
+	width:25px;
+	height:25px;
 }
 .tMethod{
-
+	float:left;
 }
 .tPath{
-
+	float:left;
 }
 .tTime{
-
+	float:left;
 }
 .tExpandable{
-
+	margin-left: 15px;
 }
 .tInputBody{
-
+	float:left;
 }
 .tInputConfig{
-
+	float:left;
 }
 .tOutput{
-
+	float:left;
 }
 .tCorrect{
 	background-color: green;
 }
 .tExpandableRow{
 	width:100%;
-	height:75px;
+	height:25px;
 	background-color: darkgrey;
 }
 .tResultStatus{
-
+	float:left;
 }
 .tResultConfig{
-
+	float:left;
 }
 .tResultHeaders{
-
+	float:left;
+}
+.tInputColumn{
+	float:left;
+	background-color: red;
+	height:25px;
+}
+.tOutputColumn{
+	background-color: blue;
+	float:left;
+	height:25px;
+}
+.tStaticChars{
+	float:left;
+}
+.tLabel{
+	float: left;
+	margin: 0px 10px 0px 10px;
+}
+.tLeftColumn{
+	float:left;
+	background-color: lightblue;
+	height:25px;
 }

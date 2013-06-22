@@ -1,25 +1,39 @@
 <div class="tCenterView">
-    <div ng-repeat="test in tests">   
-        <div class="tTestRow" ng-click="toggleExpandRow($index)">
-            <div class="tSequence" ng-bind-html-unsafe="test.sequence"></div>
-            <div class="tStatusIcon" ng-show="test.resultStatus == 'Success'" src="assets/testStatusSuccess.jpg"></div>
-            <div class="tStatusIcon" ng-show="test.resultStatus == 'Failure'" src="assets/testStatusFailure.png"></div>
-            <div class="tStatusIcon" ng-show="test.resultStatus == 'Loading'" src="assets/testStatusLoading.gif"></div>
-            <div class="tStatusIcon" ng-show="test.resultStatus == 'HardFailure'" src="assets/testStatusHardFailure.jpg"></div>
-            <div class="tStatusIcon" ng-show="test.resultStatus == 'StatusError'" src="assets/testStatusStatusError.png"></div>
-            <div class="tMethod" ng-bind-html-unsafe="test.method"></div>
-            <div class="tPath" ng-bind-html-unsafe="test.path"></div>
-            <div class="tTime" ng-bind-html-unsafe="test.time"></div>
-            <div class="tExpandable" ng-show="test.showExpandable">
-                <div class="tExpandableRow">Input Body: <div class="tInputBody" ng-bind-html-unsafe="test.inputBody"></div></div>
-                <div class="tExpandableRow">Input Config: <div class="tInputConfig" ng-bind-html-unsafe="test.inputConfig"></div></div>
-                <div class="tExpandableRow">Output: <div class="tOutput" ng-bind-html-unsafe="test.result.data"></div></div>
-                <div class="tExpandableRow">Correct Output: <div class="tOutput tCorrect" ng-bind-html-unsafe="test.correctOutput"></div></div>
-                <div class="tExpandableRow">Result Status: <div class="tResultStatus" ng-bind-html-unsafe="test.result.status"></div></div>
-                <div class="tExpandableRow">Correct Result Status: <div class="tResultStatus tCorrect" ng-bind-html-unsafe="test.correctResultStatus"></div></div>
-                <div class="tExpandableRow">Result Config: <div class="tResultConfig" ng-bind-html-unsafe="test.result.config"></div></div>
-                <div class="tExpandableRow">Result Headers: <div class="tResultHeaders" ng-bind-html-unsafe="test.result.headers"></div></div>
+    <div ng-repeat="test in tests | orderBy:'sequence':false">   
+        <div class="tTestRow" ng-class="rowColor($index)">
+            <div class="tLeftColumn">
+                <div class="tSequence" ng-bind-html-unsafe="test.sequence"></div>
+                <div class="tStatusIcon" ng-show="test.resultStatus == 'Success'" src="assets/testStatusSuccess.jpg"></div>
+                <div class="tStatusIcon" ng-show="test.resultStatus == 'Failure'" src="assets/testStatusFailure.png"></div>
+                <div class="tStatusIcon" ng-show="test.resultStatus == 'Pending'" src="assets/testStatusPending.gif"></div>
+                <div class="tStatusIcon" ng-show="test.resultStatus == 'HardFailure'" src="assets/testStatusHardFailure.jpg"></div>
+                <div class="tStatusIcon" ng-show="test.resultStatus == 'StatusError'" src="assets/testStatusStatusError.png"></div>
+                <div class="tStatusIcon" ng-show="test.resultStatus == 'NotStarted'" src="assets/testStatusNotStarted.jpg"></div>
             </div>
+            <div class="tInputColumn">
+                <select class="tMethod" ng-model="test.method" ng-options="method for method in methodTypes">
+                    <option>Method</option>
+                </select>
+                <div class="tStaticChars">--</div>
+                <textarea class="tPath" ng-model="test.path" placeholder="Path"></textarea>
+                <textarea class="tInputBody" ng-model="test.inputBody" placeholder="Input Body"></textarea>
+                <textarea class="tInputConfig" ng-model="angular.fromJson(test.inputConfig)" placeholder="Input Config"></textarea>
+            </div>
+            <div class="tOutputColumn">
+                <div class="tLabel">&nbspIn&nbsp</div>
+                <div class="tTime" ng-model="test.time"></div>
+                <textarea class="tOutput" ng-model="test.correctOutput" placeholder="Correct Output"></textarea>
+                <textarea class="tResultStatus" ng-model="test.correctResultStatus" placeholder="Correct Status"></textarea>
+            </div>
+            <button class="tExpandButton" ng-click="toggleExpandRow($index)">Expand</button>
         </div>
+        <div class="tExpandable" ng-show="test.showExpandable">
+            <div class="tExpandableRow">Output: <div class="tOutput" ng-bind-html-unsafe="test.result.data"></div></div>
+            <div class="tExpandableRow">Result Status: <div class="tResultStatus" ng-bind-html-unsafe="test.result.status"></div></div>
+            <div class="tExpandableRow">Result Config: <div class="tResultConfig" ng-bind-html-unsafe="test.result.config"></div></div>
+            <div class="tExpandableRow">Result Headers: <div class="tResultHeaders" ng-bind-html-unsafe="test.result.headers"></div></div>
+        </div>
+        <div style="clear:left"></div>
     </div>
+    <div style="clear:left"></div>
 </div>

@@ -5,13 +5,22 @@
 .hTestRow{
 	float:left;
 	width: 100%;
+	height:25px;
+}
+.hCenterView :hover{
+	background-color: lightgrey;
+	cursor: pointer;
 }
 .hTestName{
 	float:left;
+	background-color: inherit;
 }
 .hTestRoute{
 	float:left;
+	background-color: inherit;
 }
 .hEntry{
 	float:left;
+	margin-left: 10px;
+	margin-right: 10px;
 }
