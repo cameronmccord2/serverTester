@@ -1,5 +1,6 @@
 .tCenterView{
 	width: 100%;
+	background-color: black;
 }
 textarea{
 	height:20px;
@@ -10,6 +11,7 @@ textarea{
 	float:left;
 	width:100%;
 	height:30px;
+	margin-left: 10px;
 }
 .tTestRow :hover{
 	background-color: darkgrey;
@@ -68,11 +70,9 @@ textarea{
 }
 .tInputColumn{
 	float:left;
-	background-color: red;
 	height:25px;
 }
 .tOutputColumn{
-	background-color: blue;
 	float:left;
 	height:25px;
 }
@@ -87,4 +87,32 @@ textarea{
 	float:left;
 	background-color: lightblue;
 	height:25px;
+}
+.tSequenceButton{
+	float:right;
+}
+.tSequenceNumber{
+	float:left;
+}
+.tSequenceRow{
+	float:left;
+	height:30px;
+	background-color: yellow;
+	width: 1200px;
+}
+.tSequenceCompleteButton{
+	float:right;
+	width:118px;
+}
+.tSequenceNumberOfTests{
+	float:left;
+}
+.tSequenceTitle{
+	float:left;
+}
+.tSequenceCompleted{
+	float:left;
+}
+.tType{
+	float:left;
 }
