@@ -1,5 +1,5 @@
 function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q){
-    // add sorting to view
+    // add sorting to view, move up, move down, remove, unremove
     $scope.results = new Array();
     $scope.sequences = new Array();
     $scope.sequence1 = {
@@ -35,48 +35,48 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
         'ChangeData',
         'Cleanup'
     ];
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'DataCheck', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
-    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'DataCheck', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'DataCheck',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Setup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence1.tests.push({method:"GET", path:'/itemMaper', order:0, inputBody:'asdf', type:'Cleanup', inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
+    $scope.sequence2.tests.push({method:'GET', path:'/itemMaper', order:0, inputBody:'qwer', type:'ChangeData',  inputConfig:{params:{something:''}}, correctOutput:'', correctResultStatus:'', result:'', resultStatus:'', time:'', showExpandable:false});
     
 
     
@@ -88,6 +88,8 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
         console.log("sequence")
         for (var i = 0; i < $scope.sequences[j].tests.length; i++) {
             console.log('test')
+            $scope.sequences[j].tests[i].order = i;
+            $scope.sequences[j].tests[i].remove = false;
             $scope.sequences[j].tests[i].resultStatus = 'NotStarted';
             $scope.sequences[j].tests[i].inputConfigJsonString = JSON.stringify($scope.sequences[j].tests[i].inputConfig);
         };
@@ -100,11 +102,8 @@ function itemMapTestCtrl($scope, $routeParams, $rootScope, $http, $location, $q)
             return 'oddRow';
     }
 
-    $scope.toggleExpandRow = function(index){
-        if($scope.tests[index].showExpandable == true)
-            $scope.tests[index].showExpandable = false;
-        else
-            $scope.tests[index].showExpandable = true;
+    $scope.move = function(index, which, how){
+        
     }
 
     $scope.toggle = function(object, m1, m2, m3){

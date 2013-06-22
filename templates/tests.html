@@ -14,7 +14,7 @@
             <button class="tSequenceButton" ng-click="toggle(sequence, 'showExpandedSequence')" ng-hide="sequence.showExpandedSequence">Expand</button>
             <button class="tSequenceButton" ng-click="toggle(sequence, 'showExpandedSequence')" ng-show="sequence.showExpandedSequence">UnExpand</button>
         </div>
-        <div ng-show="sequence.showExpandedSequence" ng-repeat="test in sequence.tests | orderBy:'sequence':false">   
+        <div ng-show="sequence.showExpandedSequence" ng-repeat="test in sequence.tests | orderBy:'order':false">   
             <div class="tTestRow" ng-class="rowColor($index)">
                 <div class="tLeftColumn">
                     <div class="tStatusIcon" ng-show="test.resultStatus == 'Success'" src="assets/testStatusSuccess.jpg"></div>
@@ -42,6 +42,10 @@
                     <input type="text" class="tOutput" ng-model="test.correctOutput" placeholder="Correct Output">
                     <input type="text" class="tResultStatus" ng-model="test.correctResultStatus" placeholder="Correct Status">
                 </div>
+                <button class="tExpandButton" ng-click="move($index, 'test', 'up')" ng-show="test.showExpandedTest">Move Up</button>
+                <button class="tExpandButton" ng-click="move($index, 'test', 'down')" ng-show="test.showExpandedTest">Move Down</button>
+                <button class="tExpandButton" ng-click="toggle(test, 'remove')" ng-show="test.showExpandedTest">Remove</button>
+                <button class="tExpandButton" ng-click="toggle(test, 'remove')" ng-show="test.showExpandedTest">UnRemove</button>
                 <button class="tExpandButton" ng-click="toggle(test, 'showExpandedTest')" ng-hide="test.showExpandedTest">Expand</button>
                 <button class="tExpandButton" ng-click="toggle(test, 'showExpandedTest')" ng-show="test.showExpandedTest">UnExpand</button>
             </div>

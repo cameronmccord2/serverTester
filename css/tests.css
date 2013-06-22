@@ -9,7 +9,7 @@ textarea{
 }
 .tTestRow{
 	float:left;
-	width:100%;
+	width:1190px;
 	height:30px;
 	margin-left: 10px;
 }
@@ -90,6 +90,7 @@ textarea{
 }
 .tSequenceButton{
 	float:right;
+	width:72px;
 }
 .tSequenceNumber{
 	float:left;
