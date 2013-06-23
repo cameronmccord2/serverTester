@@ -17,5 +17,8 @@ serverTesterApp.run(function ($rootScope) {
     //$rootScope.nodeUrl = 'http://trucklisting.azurewebsites.net';
 
     // $rootScope.nodeUrl = 'http://127.0.0.1:8080';
-    $rootScope.nodeUrl = 'http://54.214.238.10:8080';
+    if(location.host == 'local' || location.host == 'localhost')
+        $rootScope.nodeUrl = 'http://127.0.0.1:8090/';
+    else
+        $rootScope.nodeUrl = 'http://servertester-mccord.rhcloud.com/';
 });
