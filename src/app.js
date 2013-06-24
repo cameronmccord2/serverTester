@@ -3,9 +3,11 @@ var serverTesterApp = angular.module('SERVERTESTER', []);
 serverTesterApp.config(['$routeProvider',function ($routeProvider, $locationProvider) {
     //$locationProvider.html5Mode(true);
     $routeProvider.
+        when('/login', {templateUrl: 'templates/login.html', controller: loginCtrl}).
+        when('/logout', {templateUrl: 'templates/logout.html', controller: logoutCtrl}).
         when('/serverTester/home', { templateUrl: 'templates/home.html', controller: mainCtrl}).
         when('/serverTester/itemMap', { templateUrl: 'templates/tests.html', controller: itemMapTestCtrl}).
-        otherwise({ redirectTo: '/serverTester/home' });
+        otherwise({ redirectTo: '/login' });
 }]);
 
 //******************************************

@@ -18,6 +18,7 @@ input{
 }
 .tExpandButton{
 	float:right;
+	width: 72px;
 }
 .tSequence{
 	float:left;
