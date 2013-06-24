@@ -19,6 +19,7 @@ serverTesterApp.run(function ($rootScope) {
     //$rootScope.nodeUrl = 'http://trucklisting.azurewebsites.net';
 
     // $rootScope.nodeUrl = 'http://127.0.0.1:8080';
+    console.log(location.host)
     if(location.host == 'local' || location.host == 'localhost')
         $rootScope.nodeUrl = 'http://127.0.0.1:8090/';
     else
