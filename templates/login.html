@@ -1,0 +1,16 @@
+<div class="loginArea">
+	<div class="loginMessage">
+		{{loginMessage}}
+		<div ng-show="loginMessage == Processing"><img class="loginLoading" src="assets/loading.gif"></div>
+	</div>
+	<div ng-show="showLoginInput">
+		<input type="username" ng-model="user.username" placeholder="Username">
+			<div ng-show="doesUsernameExist == 'exists'"><img src="assets/usernameExists.jpg"></div>
+			<div ng-show="doesUsernameExist == 'doesntExist'"><img src="assets/usernameDoesntExist.jpg"></div>
+			<div ng-show="doesUsernameExist == 'pending'"><img src="assets/usernameExistPending.jpg"></div>
+		<br><input type="password" ng-model="user.password" placeholder="Password">
+		<button ng-click="login()">Login</button>
+	</div>
+	<br><br>
+	<div class="loginAgain" ng-click="loginAgain()">Login Again</div>
+</div>

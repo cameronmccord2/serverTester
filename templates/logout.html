@@ -1,0 +1,18 @@
+<div class="logoutArea">
+	<div ng-switch on="logoutStatus">
+		<div ng-switch-when="notStarted">
+			Logout not started
+		</div>
+		<div ng-switch-when="processing">
+			Logout processing
+		</div>
+		<div ng-switch-when="success">
+			Logout Success
+		</div>
+		<div ng-switch-when="failure">
+			Logout Failure
+		</div>
+	</div>
+	<br><br>
+	<div class="loginAgain" ng-click="loginAgain()">Login Again</div>
+</div>
