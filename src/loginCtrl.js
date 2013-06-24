@@ -1,6 +1,6 @@
 function loginCtrl($rootScope, $scope, $location, $http){
 	
-	$scope.loginMessage = '';
+	$scope.loginMessage = 'Login ';
 	$scope.doesUsernameExist = 'unknown';
 	$scope.showLoginInput = true;
 	$scope.user = new Object();
@@ -24,19 +24,5 @@ function loginCtrl($rootScope, $scope, $location, $http){
 					$scope.loginMessage = 'Login failure, there was a server error. Try again now or later';
 			});
 		}
-	}
-
-	$scope.checkUsername = function(username){
-		$scope.doesUsernameExist = 'pending';
-		$http.post($rootScope.nodeUrl + '/user/doesUsernameExist', {username:username}).success(function(data){
-			if(data == 'doesntExist')
-				$scope.doesUsernameExist = 'no';
-			else if(data == 'exists')
-				$scope.doesUsernameExist = 'yes';
-			else
-				$scope.doesUsernameExist = 'serverError';
-		}).error(function(data){
-			$scope.doesUsernameExist = 'serverError';
-		});
 	}
 }

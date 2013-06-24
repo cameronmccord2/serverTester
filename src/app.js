@@ -5,6 +5,7 @@ serverTesterApp.config(['$routeProvider',function ($routeProvider, $locationProv
     $routeProvider.
         when('/login', {templateUrl: 'templates/login.html', controller: loginCtrl}).
         when('/logout', {templateUrl: 'templates/logout.html', controller: logoutCtrl}).
+        when('/newUser', {templateUrl: 'templates/newUser.html', controller: newUserCtrl}).
         when('/serverTester/home', { templateUrl: 'templates/home.html', controller: mainCtrl}).
         when('/serverTester/itemMap', { templateUrl: 'templates/tests.html', controller: itemMapTestCtrl}).
         otherwise({ redirectTo: '/login' });
@@ -20,8 +21,8 @@ serverTesterApp.run(function ($rootScope) {
 
     // $rootScope.nodeUrl = 'http://127.0.0.1:8080';
     console.log(location.host)
-    if(location.host == 'local' || location.host == 'localhost')
-        $rootScope.nodeUrl = 'http://127.0.0.1:8090/';
+    if(location.host == 'local' || location.host == 'localhost:8090')
+        $rootScope.nodeUrl = 'http://127.0.0.1:8090/serverTester';
     else
-        $rootScope.nodeUrl = 'http://servertester-mccord.rhcloud.com/';
+        $rootScope.nodeUrl = 'http://servertester-mccord.rhcloud.com/serverTester';
 });
