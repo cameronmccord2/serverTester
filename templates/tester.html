@@ -1,6 +1,21 @@
 <div class="testerArea">
-	<input type="text" ng-model="input.username" placeholder="username">
-	<input type="text" ng-model="input.password" placeholder="password">
-	<button ng-click="sequence.login">Login</button>
-	<div class="tText">{{loginString}}</div>
+	<div>
+		<div>New User Area</div>
+		<input type="text" ng-model="newUser.username" placeholder="username" ng-change="sequence.checkUsername(newUser.username)">
+		<input type="text" ng-model="newUser.password" placeholder="password">
+		<input type="text" ng-model="newUser.firstName" placeholder="firstName">
+		<input type="text" ng-model="newUser.lastName" placeholder="lastName">
+		<input type="text" ng-model="newUser.email" placeholder="email">
+		<button ng-click="sequence.newUser()">New User</button>
+		<div ng-show="input.usernameGood">Username is valid</div>
+		<div ng-show="!input.usernameGood">Username is NOT valid</div>
+		<div class="tText">{{newUser.string}}
+	</div>
+	<div>
+		<div>Login Area</div>
+		<input type="text" ng-model="loginParams.username" placeholder="username">
+		<input type="text" ng-model="loginParams.password" placeholder="password">
+		<button ng-click="sequence.login(loginParams.username, loginParams.password)">Login</button>
+		<div class="tText">{{loginString}}</div>
+	</div>
 </div>
