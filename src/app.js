@@ -5,10 +5,11 @@ serverTesterApp.config(['$routeProvider',function ($routeProvider, $locationProv
     $routeProvider.
         when('/login', {templateUrl: 'templates/login.html', controller: loginCtrl}).
         when('/logout', {templateUrl: 'templates/logout.html', controller: logoutCtrl}).
-        when('/newUser', {templateUrl: 'templates/newUser.html', controller: newUserCtrl}).
+        when('/newUser', {templateUrl: 'templates/newUser.html', controller: NewUserCtrl}).
         when('/serverTester/home', { templateUrl: 'templates/home.html', controller: mainCtrl}).
         when('/serverTester/itemMap', { templateUrl: 'templates/tests.html', controller: itemMapTestCtrl}).
-        otherwise({ redirectTo: '/login' });
+        when('/serverTester/map', {templateUrl: 'templates/tester.html', controller: TesterCtrl}).
+        otherwise({ redirectTo: '/serverTester/map' });
 }]);
 
 //******************************************

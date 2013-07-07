@@ -1,0 +1,24 @@
+<div class="newUserArea">
+	<div class="newUserInputRow">
+		Username: <input type="text" ng-model="user.username" ng-change="checkUsername(user.username)" placeholder="Username(required)">
+		<div class="checkUsernameGif" ng-show="doesUsernameExist == 'exists'"><img src="assets/usernameExists.jpg"></div>
+		<div class="checkUsernameGif" ng-show="doesUsernameExist == 'doesntExist'"><img src="assets/usernameDoesntExist.jpg"></div>
+		<div class="checkUsernameGif" ng-show="doesUsernameExist == 'pending'"><img src="assets/usernameExistPending.jpg"></div>
+	</div>
+	<div class="newUserInputRow">Password: <input type="password" ng-model="user.password1" ng-change="checkPassword(user.password1, user.password2)" placeholder="Password(required)"></div>
+	<div class="newUserInputRow">
+		Confirm Password: <input type="password" ng-model="user.password2" ng-change="checkPassword(user.password1, user.password2)" placeholder="Confirm Password(required)">
+		<div class="checkUsernameGif" ng-show="passwordGood == 'bad'"><img src="assets/passwordBad.jpg"></div>
+		<div class="checkUsernameGif" ng-show="passwordGood == 'good'"><img src="assets/passwordGood.jpg"></div>
+	</div>
+	<div class="newUserInputRow">Email: <input type="email" ng-model="user.email" placeholder="Email(required)"></div>
+	<div class="newUserInputRow">First Name: <input type="text" ng-model="user.firstName" placeholder="First Name(required)"></div>
+	<div class="newUserInputRow">Last Name: <input type="text" ng-model="user.lastName" placeholder="Last Name(required)"></div>
+	<div class="newUserInputRow">Security Question 1: <input type="text" ng-model="user.sq1" placeholder="Security Question 1(required)"></div>
+	<div class="newUserInputRow">Security Answer 1: <input type="text" ng-model="user.sa1" placeholder="Security Answer 1(required)"></div>
+	<div class="newUserInputRow">Security Question 2: <input type="text" ng-model="user.sq2" placeholder="Security Question 2(required)"></div>
+	<div class="newUserInputRow">Security Answer 2: <input type="text" ng-model="user.sa2" placeholder="Security Answer 2(required)"></div>
+	<div class="newUserInputRow">Security Question 3: <input type="text" ng-model="user.sq3" placeholder="Security Question 3(required)"></div>
+	<div class="newUserInputRow">Security Answer 3: <input type="text" ng-model="user.sa3" placeholder="Security Answer 3(required)"></div>
+	<div class="newUserInputRow">Phone Number: <input type="text" ng-model="user.phoneNumber" placeholder="Phone Number"></div>
+</div>
