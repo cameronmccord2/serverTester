@@ -18,4 +18,7 @@
 		<button ng-click="sequence.login(loginParams.username, loginParams.password)">Login</button>
 		<div class="tText">{{loginString}}</div>
 	</div>
+	<div ng-repeat="test in resultsArray">
+		{{test.testStatus}}
+	</div>
 </div>
