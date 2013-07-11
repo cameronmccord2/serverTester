@@ -162,6 +162,6 @@ function TesterCtrl($rootScope, $scope, $location, $routeParams, $http, $q){
 			]
 		}
 	];
-	$scope.testLoop(0).then(function(){$scope.testLoop(1).then(function(){$scope.testLoop(2);});});
-
+	//$scope.testLoop(0).then(function(){$scope.testLoop(1).then(function(){$scope.testLoop(2);});});
+	$scope.testLoop(1).then(function(){$scope.testLoop(2)});
 }
