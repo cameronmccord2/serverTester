@@ -19,6 +19,14 @@ function TesterCtrl($rootScope, $scope, $location, $routeParams, $http, $q){
 	};
 	$scope.sequence = new Object();
 	$scope.resultsArray = new Array();
+
+	$scope.makeDbName = function(){
+	    $scope.dbName = "";
+	    var possible = "abcdefghijklmnopqrstuvwxyz";
+	    for( var i=0; i < 10; i++ )
+	        $scope.dbName += possible.charAt(Math.floor(Math.random() * possible.length));
+	}
+
 	var call = {
 		get:function(path, params){
 			console.log("here", path, params)
@@ -87,6 +95,7 @@ function TesterCtrl($rootScope, $scope, $location, $routeParams, $http, $q){
 		var defer = $q.defer();
 		var validResult = "Valid";
 		inputData.token = $scope.currentToken;
+		inputData.useDatabase = $scope.dbName;
 		console.log(inputData)
 		$scope.sequence[sequence](inputData).then(function(result){
 			var testResult = evaluateResult(result, validResult, data, status, headers, config);
@@ -132,6 +141,15 @@ function TesterCtrl($rootScope, $scope, $location, $routeParams, $http, $q){
 
 	$scope.tests = [
 		{
+			category:"Login when user isnt present",
+			sequence:"login",
+			tests:[
+				['No Data', {}, 'Missing token: username', 401],
+				['Username', {username:"stuff"}, 'Missing token: password', 401],
+				['Good Login', {username:"username", password:"password"}, 'usernameInvalid', 400]
+			]
+		},
+		{
 			category:"Create User",
 			sequence:'newUser',
 			tests:[
@@ -157,11 +175,61 @@ function TesterCtrl($rootScope, $scope, $location, $routeParams, $http, $q){
 			category:"User Data",
 			sequence:"userData",
 			tests:[
-				['No Data', {}, 'Missing authorization token', 401],
-				['With token', {token:$scope.currentToken}, undefined, 200]
+				['No Data', {}, undefined, 200]// token added to all outbound calls
 			]
 		}
 	];
-	//$scope.testLoop(0).then(function(){$scope.testLoop(1).then(function(){$scope.testLoop(2);});});
-	$scope.testLoop(1).then(function(){$scope.testLoop(2)});
+	$scope.makeDbName();
+	$scope.testLoop(0).then(function(){$scope.testLoop(1).then(function(){$scope.testLoop(2).then(function(){$scope.testLoop(3);});});});
+	//$scope.testLoop(1).then(function(){$scope.testLoop(2)});
+	// $scope.testLoop(2);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
