@@ -20,11 +20,16 @@ function TesterCtrl($rootScope, $scope, $location, $routeParams, $http, $q){
 	$scope.sequence = new Object();
 	$scope.resultsArray = new Array();
 
+	$scope.makeRandomString = function(howLong){
+		var name = "";
+		var possible = "abcdefghijklmnopqrstuvwxyz";
+	    for(var i = 0; i < howLong; i++)
+	        name += possible.charAt(Math.floor(Math.random() * possible.length));
+	    return name;
+	}
+
 	$scope.makeDbName = function(){
-	    $scope.dbName = "";
-	    var possible = "abcdefghijklmnopqrstuvwxyz";
-	    for( var i=0; i < 10; i++ )
-	        $scope.dbName += possible.charAt(Math.floor(Math.random() * possible.length));
+	    $scope.dbName = $scope.makeRandomString(10);
 	}
 
 	var call = {
@@ -96,6 +101,7 @@ function TesterCtrl($rootScope, $scope, $location, $routeParams, $http, $q){
 		var validResult = "Valid";
 		inputData.token = $scope.currentToken;
 		inputData.useDatabase = $scope.dbName;
+		// inputData.useDatabase = "asdf";
 		console.log(inputData)
 		$scope.sequence[sequence](inputData).then(function(result){
 			var testResult = evaluateResult(result, validResult, data, status, headers, config);
@@ -140,6 +146,39 @@ function TesterCtrl($rootScope, $scope, $location, $routeParams, $http, $q){
 	}
 
 	$scope.tests = [
+		{
+			category:"Check Username, shouldnt exist",
+			sequence:"checkUsername",
+			tests:[
+				['No Data', {}, 'Missing username', 400],
+				['Username missing', {username:$scope.makeRandomString(0)}, 'Missing username', 400],
+				['Garbage Username, short', {username:$scope.makeRandomString(1)}, 'Username too short, should be more than 5', 400],
+				['Garbage Username, short', {username:$scope.makeRandomString(2)}, 'Username too short, should be more than 5', 400],
+				['Garbage Username, short', {username:$scope.makeRandomString(3)}, 'Username too short, should be more than 5', 400],
+				['Garbage Username, short', {username:$scope.makeRandomString(4)}, 'Username too short, should be more than 5', 400],
+				['Garbage Username', {username:$scope.makeRandomString(5)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(6)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(7)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(8)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(9)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(10)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(11)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(12)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(13)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(14)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(15)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(16)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(17)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(18)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(19)}, 'doesntExist', 200],
+				['Garbage Username', {username:$scope.makeRandomString(20)}, 'Username too long, should be less than 20', 400],
+				['Garbage Username', {username:$scope.makeRandomString(21)}, 'Username too long, should be less than 20', 400],
+				['Garbage Username', {username:$scope.makeRandomString(22)}, 'Username too long, should be less than 20', 400],
+				['Garbage Username', {username:$scope.makeRandomString(23)}, 'Username too long, should be less than 20', 400],
+				['Garbage Username', {username:$scope.makeRandomString(24)}, 'Username too long, should be less than 20', 400],
+				['Garbage Username', {username:$scope.makeRandomString(25)}, 'Username too long, should be less than 20', 400],
+			]
+		},
 		{
 			category:"Login when user isnt present",
 			sequence:"login",
