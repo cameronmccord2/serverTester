@@ -9,6 +9,7 @@ serverTesterApp.config(['$routeProvider',function ($routeProvider, $locationProv
         when('/serverTester/home', { templateUrl: 'templates/home.html', controller: mainCtrl}).
         when('/serverTester/itemMap', { templateUrl: 'templates/tests.html', controller: itemMapTestCtrl}).
         when('/serverTester/map', {templateUrl: 'templates/tester.html', controller: TesterCtrl}).
+        when('/serverTester/map/:from/:to', {templateUrl: 'templates/tester.html', controller: TesterCtrl}).
         otherwise({ redirectTo: '/serverTester/map' });
 }]);
 
