@@ -21,6 +21,7 @@
 	<button ng-click="showGoodTests = !showGoodTests">Toggle show good tests</button>
 	<button ng-click="repeaterOrder = !repeaterOrder">Toggle repeater order</button>
 	<button ng-click="stopTesting = !stopTesting">Toggle stop testing</button>
+	<button ng-click="showConsoleLogs = !showConsoleLogs">Toggle show logs</button>
 	<button ng-click="reloadPage()">Rerun tests(reload page)</button>
 	<select ng-model="newTest.from"><option ng-repeat="test in tests" value="{{$index}}">{{$index}} - {{test.category}}</option></select>
 	<select ng-model="newTest.to"><option ng-repeat="test in tests" value="{{$index}}">{{$index}} - {{test.category}}</option></select>
